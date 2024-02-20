@@ -1,0 +1,232 @@
+@import '_variables';
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body { font-family: BlinkMacSystemFont, Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif; }
+
+
+button {
+    background-color: transparent;
+    border: none;
+
+    &:hover {
+    cursor: pointer;
+    }
+}
+
+header {
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background-color: $primary-color;
+    padding: 1rem;
+    color: white;
+    z-index: 99;
+
+    .logo {
+        font-size: 1.5rem;
+        span:first-child {
+            font-weight: bold;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .address {
+        border-bottom: 1px solid white;
+        letter-spacing: 0.25rem;
+
+        &:hover {
+            cursor: text;
+        }
+    }
+    
+    button {
+        background-color: transparent;
+        border: none;
+
+        .fa-bars {
+            font-size: 1.5rem;
+            color: white;
+        }
+    }
+}
+
+.type-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: $type-section-background;
+    position: sticky;
+    top: 3.8rem;
+    z-index: 98;
+    border-bottom: 2px solid $type-section-background-2;
+    .buttons {
+        button {
+            padding: 1rem 3rem;
+
+            &.button-1 {
+                border-bottom: 2px solid $primary-color;
+                color: $primary-color;
+            }
+        }
+    }
+}
+
+.category-section {
+    display: flex;
+    width: 70%;
+    justify-content: flex-start;
+    gap: 2rem;
+    margin: 1rem auto;
+    flex-wrap: wrap;
+
+    .active {
+        background-color: $primary-color;
+        padding: 0.5rem 0.75rem;
+        border-radius: 2rem;
+        color: white;
+    }
+
+    button {
+        font-weight: bold;
+
+        &:last-of-type {
+            color: $primary-color;
+        }
+    }
+}
+
+.main-section {
+
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    width: 70%;
+    margin: 0 auto;
+
+    .header {
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+
+    .left-main-section {
+        .header {
+            margin-top: 1rem;
+        }
+
+        input:hover {
+            cursor: pointer;
+        }
+
+        input:checked {
+            accent-color: #007efe;
+        }
+
+        .radio-button {
+            margin-top: 1rem;
+        }
+
+        .stars {
+            margin-top: 1rem;
+            .fa-star {
+                color: #b7b7b76c;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .checkbox {
+            margin-top: 1rem;
+        }
+    }
+
+    .right-main-section {
+        margin-bottom: 2rem;
+        .search {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 1rem;
+            input {
+                flex: 1;
+                padding: 0.5rem 1rem;
+            }
+
+            button {
+                .fa-map-marker-alt {
+                    font-size: 1.5rem;
+                    padding: 0 1rem;
+                }
+            }
+        }
+
+        .item {
+            border: 1px solid gray;
+            margin-top: 1rem;
+            display: flex;
+            justify-content: flex-start;
+
+                
+            @for $i from 1 through 12 {
+                $color-index: $i % 8 + 1;
+                &:nth-child(#{$i}) .pic {
+                  width: 17rem;
+                  background-color: nth($item-colors, $color-index);
+                }
+            }
+
+            .logo {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: none;
+                position: relative;
+                transform: rotate(350deg);  
+                right: 2.5rem;   
+                top: 2.5rem;  
+                height: 5rem;
+                width: 5rem;
+                border-radius: 50%;
+                color: $primary-color;
+                font-weight: bold;
+                background-color: $type-section-background;
+            }
+
+            .info {
+                width: 20rem;
+                padding: 2rem 0 3rem 0;
+                .header {
+                    font-size: 1.1rem;
+                }
+
+                .description {
+                    font-size: 0.8rem;
+                    margin-bottom: 1rem;
+                }
+
+                .content {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr 1fr;
+                    font-size: 0.8rem;
+
+                    .star, div:nth-of-type(2), div:nth-of-type(3) {
+                        display: flex;
+                        gap: 0.25rem;
+                        align-items: center;
+                        .fa-star {
+                            color: $primary-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
